@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AppBible — a Bíblia que leva do versículo ao contexto</title>
+<meta name="description" content="App Android de leitura e estudo da Bíblia: pessoas, lugares, mapas, linha do tempo, hebraico e grego palavra por palavra. Tudo offline.">
+<meta name="theme-color" content="#F3E7CF">
+<meta property="og:title" content="AppBible — do versículo ao contexto">
+<meta property="og:description" content="Leitura, estudo do original, mapas, linha do tempo e planos de leitura. Tudo offline, no Android.">
+<meta property="og:image" content="assets/demo-poster.jpg">
+<link rel="icon" href="assets/icone.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#topo" aria-label="AppBible, início">
+    <img src="assets/icone.svg" alt="" width="30" height="30">
+    <span>AppBible</span>
+  </a>
+  <nav class="nav-links" aria-label="Seções">
+    <a href="#demo">Demonstração</a>
+    <a href="#recursos">Recursos</a>
+    <a href="#offline">Offline</a>
+    <a href="#fontes">Fontes</a>
+    <a href="#apoiar">Apoiar</a>
+  </nav>
+  <a class="nav-cta" href="#demo">Ver o app</a>
+  <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+    <span></span><span></span>
+  </button>
+</header>
+
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Menu">
+    <a href="#demo">Demonstração</a>
+    <a href="#recursos">Recursos</a>
+    <a href="#offline">Offline</a>
+    <a href="#fontes">Fontes</a>
+    <a href="#apoiar">Apoiar</a>
+  </nav>
+</div>
+
+<main id="topo">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow reveal">Bíblia de estudo · Android · 100% offline</span>
+    <h1 class="reveal">Do versículo às <em>pessoas</em>, aos <em>lugares</em> e ao <em>tempo</em>.</h1>
+    <p class="lede reveal">O AppBible é um leitor da Bíblia com navegação contextual. De qualquer versículo você chega a quem é citado, onde aconteceu, quando foi e o que diz o original — e volta pelo mesmo caminho.</p>
+    <div class="cta-row reveal">
+      <a class="btn btn-primary" href="#demo">
+        <span>Assistir à demonstração</span>
+        <i aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></i>
+      </a>
+      <span class="soon"><span class="dot"></span>Em breve na Google Play</span>
+    </div>
+    <dl class="facts reveal">
+      <div><dt>3</dt><dd>traduções em português, lado a lado</dd></div>
+      <div><dt>2</dt><dd>línguas originais, palavra por palavra</dd></div>
+      <div><dt>5</dt><dd>planos de leitura com progresso</dd></div>
+    </dl>
+  </div>
+
+  <div class="hero-stage reveal" aria-hidden="true">
+    <div class="phone phone-back"><div class="screen"><img src="assets/tela-rotas-escuro.webp" alt="" width="600" height="1333" loading="eager"></div></div>
+    <div class="phone phone-front"><div class="screen"><img src="assets/tela-leitura.webp" alt="" width="600" height="1333" loading="eager"></div></div>
+    <div class="chip chip-a"><b>Abrão</b> · pessoa · 277 versículos</div>
+    <div class="chip chip-b">Etapa 7 de 17 · Filipos</div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow on-dark">Demonstração</span>
+      <h2>O app em um minuto e meio.</h2>
+      <p>Gravação da tela do aplicativo, sem montagem. Toque em um capítulo para ir direto ao recurso.</p>
+    </div>
+
+    <div class="demo-grid">
+      <div class="demo-phone reveal">
+        <div class="phone phone-video">
+          <div class="screen">
+            <video id="video" muted playsinline loop preload="metadata" poster="assets/demo-poster.jpg">
+              <source src="assets/demo.mp4" type="video/mp4">
+            </video>
+            <button class="play-overlay" id="playOverlay" aria-label="Reproduzir demonstração">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="player">
+          <button id="toggle" class="player-btn" aria-label="Pausar">
+            <svg class="i-pause" viewBox="0 0 24 24" width="16" height="16"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            <svg class="i-play" viewBox="0 0 24 24" width="16" height="16"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>
+          </button>
+          <div class="track" id="track" role="slider" tabindex="0" aria-label="Posição do vídeo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="track-fill" id="trackFill"></div></div>
+          <span class="time" id="time">0:00</span>
+        </div>
+      </div>
+
+      <ol class="chapters reveal" id="chapters"></ol>
+    </div>
+  </div>
+</section>
+
+<!-- RECURSOS -->
+<section class="features" id="recursos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Recursos</span>
+      <h2>Ler é o começo. <em>Entender</em> é o caminho.</h2>
+      <p>Cada tela leva à próxima: o nome no texto abre a pessoa, a pessoa abre o mapa, o mapa volta ao capítulo.</p>
+    </div>
+
+    <div class="bento">
+      <article class="card c-read reveal">
+        <div class="card-in">
+          <div class="card-text">
+            <span class="tag">Leitura</span>
+            <h3>Uma Bíblia impressa, na tela.</h3>
+            <p>Texto serifado, página de rosto com gravuras de Gustave Doré, itálicos do tradutor, palavras de Jesus em vermelho e notas de rodapé. Deslize para virar o capítulo; as barras somem enquanto você lê.</p>
+            <ul class="mini">
+              <li>Bíblia Livre, Bíblia Portuguesa Mundial e Nova Bíblia Viva</li>
+              <li>Comparação de traduções em cada versículo</li>
+              <li>Destaques em cinco cores, favoritos e notas</li>
+            </ul>
+          </div>
+          <figure class="shot"><img src="assets/tela-nomes.webp" alt="Gênesis 12 no leitor, com nomes de pessoas e lugares em destaque" width="600" height="1333" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <article class="card c-orig reveal">
+        <div class="card-in">
+          <span class="tag">Original</span>
+          <h3>Hebraico e grego, palavra por palavra.</h3>
+          <p>Toque numa palavra para ver o verbete em português, a gramática e todas as ocorrências por livro.</p>
+          <figure class="shot crop"><img src="assets/tela-palavra.webp" alt="Estudo da palavra grega agápē, com ocorrências por livro" width="600" height="1333" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <article class="card c-map dark reveal">
+        <div class="card-in">
+          <div class="card-text">
+            <span class="tag">Mapa</span>
+            <h3>As viagens, etapa por etapa.</h3>
+            <p>Mapa offline com os lugares de cada capítulo e as rotas de Abraão, do Êxodo e das quatro viagens de Paulo — a linha se desenha enquanto a história avança.</p>
+          </div>
+          <figure class="shot"><img src="assets/tela-rotas-escuro.webp" alt="Mapa da terceira viagem de Paulo no tema escuro" width="600" height="1333" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <article class="card c-time reveal">
+        <div class="card-in">
+          <span class="tag">Linha do tempo</span>
+          <h3>Quando foi, e quem vivia então.</h3>
+          <p>Eventos e vidas em ordem, dos patriarcas à igreja primitiva, com filtro por livro.</p>
+          <figure class="shot crop"><img src="assets/tela-tempo.webp" alt="Linha do tempo no período dos patriarcas" width="600" height="1333" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <article class="card c-tree reveal">
+        <div class="card-in">
+          <span class="tag">Árvore genealógica</span>
+          <h3>De Adão a Jesus, parente por parente.</h3>
+          <p>Avós, pais, cônjuges, filhos e netos. Toque num nome e a árvore se recentra nele.</p>
+          <figure class="shot crop"><img src="assets/tela-arvore.webp" alt="Árvore genealógica de Abraão" width="600" height="1333" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <article class="card c-search reveal">
+        <div class="card-in">
+          <span class="tag">Busca</span>
+          <h3>Um campo só.</h3>
+          <p>Digite <kbd>Jo 3:16</kbd>, um nome, um número de Strong ou uma frase — sem se preocupar com acentos.</p>
+          <figure class="shot crop"><img src="assets/tela-busca.webp" alt="Resultados da busca por misericórdia" width="600" height="1333" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <article class="card c-plans reveal">
+        <div class="card-in">
+          <div class="card-text">
+            <span class="tag">Planos</span>
+            <h3>Um ritmo que cabe no seu dia.</h3>
+            <p>Cinco planos, da Bíblia em um ano aos Evangelhos em 30 dias, com dias equilibrados por versículos, lembrete diário e versículo do dia.</p>
+          </div>
+          <figure class="shot"><img src="assets/tela-planos.webp" alt="Lista de planos de leitura" width="600" height="1333" loading="lazy"></figure>
+        </div>
+      </article>
+
+      <article class="card c-listen reveal">
+        <div class="card-in">
+          <span class="tag">Ouvir</span>
+          <h3>Leitura em voz alta, até com a tela apagada.</h3>
+          <p>O versículo em leitura fica destacado, a rolagem acompanha e os controles aparecem na tela de bloqueio e nos fones.</p>
+          <div class="wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="speeds" aria-hidden="true"><span>0,75×</span><span class="on">1×</span><span>1,25×</span><span>1,5×</span></div>
+        </div>
+      </article>
+
+      <article class="card c-theme reveal">
+        <div class="card-in">
+          <span class="tag">Aparência</span>
+          <h3>Claro, escuro ou papiro.</h3>
+          <p>Três temas feitos para leitura longa, mais o automático.</p>
+          <div class="swatches" aria-hidden="true">
+            <div class="sw sw-papiro"><b>1</b>No princípio criou Deus os céus e a terra.</div>
+            <div class="sw sw-claro"><b>1</b>No princípio criou Deus os céus e a terra.</div>
+            <div class="sw sw-escuro"><b>1</b>No princípio criou Deus os céus e a terra.</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- OFFLINE -->
+<section class="offline" id="offline">
+  <div class="wrap offline-grid">
+    <div class="reveal">
+      <span class="eyebrow">Offline de verdade</span>
+      <h2>Tudo vem dentro do app.</h2>
+      <p class="lede">Texto, léxicos, notas de estudo, mapas e gravuras ficam num único banco de dados instalado junto com o aplicativo. No avião, no sítio ou sem plano de dados, nada muda.</p>
+    </div>
+    <ul class="pillars">
+      <li class="reveal"><span>01</span><div><h3>Sem internet</h3><p>Leitura, busca, mapa, linha do tempo e leitura em voz alta funcionam sem conexão.</p></div></li>
+      <li class="reveal"><span>02</span><div><h3>Suas marcações são suas</h3><p>Destaques, notas, favoritos e planos ficam no aparelho e podem ser salvos num arquivo legível para backup.</p></div></li>
+      <li class="reveal"><span>03</span><div><h3>Continua de onde parou</h3><p>O app reabre no capítulo e no ponto exato em que a leitura foi interrompida.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FONTES -->
+<section class="sources" id="fontes">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Fontes abertas</span>
+      <h2>Construído sobre dados abertos.</h2>
+      <p>O conteúdo vem de projetos públicos, creditados dentro do aplicativo.</p>
+    </div>
+    <ul class="source-list reveal">
+      <li><b>Bíblia Livre</b><span>tradução padrão</span></li>
+      <li><b>Bíblia Portuguesa Mundial</b><span>tradução</span></li>
+      <li><b>Biblica® Open Nova Bíblia Viva™</b><span>tradução em linguagem atual</span></li>
+      <li><b>STEPBible Data</b><span>hebraico, grego e léxicos · CC BY 4.0</span></li>
+      <li><b>Tyndale Open Study Notes</b><span>notas de estudo · CC BY-SA 4.0</span></li>
+      <li><b>Theographic Bible Metadata</b><span>pessoas, lugares e eventos · CC BY-SA 4.0</span></li>
+      <li><b>OpenBible.info</b><span>referências cruzadas · CC BY</span></li>
+      <li><b>Natural Earth</b><span>base do mapa · domínio público</span></li>
+      <li><b>Gustave Doré</b><span>gravuras · domínio público</span></li>
+      <li><b>Wikipédia em português</b><span>introduções · CC BY-SA 4.0</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- APOIAR -->
+<section class="support" id="apoiar">
+  <div class="wrap support-grid">
+    <div class="support-copy reveal">
+      <span class="eyebrow">Apoie o projeto</span>
+      <h2>Gostou? Ajude o AppBible a <em>continuar</em>.</h2>
+      <p class="lede">O aplicativo não tem anúncios. Uma doação de qualquer valor ajuda a manter o trabalho: mais notas de estudo, mais léxico, mais mapas.</p>
+    </div>
+    <div class="card pix reveal">
+      <div class="card-in">
+        <span class="tag">Doação por Pix</span>
+        <p class="pix-label">Chave Pix (e-mail)</p>
+        <p class="pix-key" id="pixKey">ricardoborges@gmail.com</p>
+        <button class="btn btn-primary" id="pixCopy" type="button">
+          <span id="pixCopyLabel">Copiar chave</span>
+          <i aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></svg></i>
+        </button>
+        <p class="pix-help" aria-live="polite">No app do seu banco, escolha Pix → pagar com chave e cole o e-mail. Confira o nome Ricardo Borges antes de confirmar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final">
+  <div class="final-card reveal">
+    <div class="final-in">
+      <img src="assets/icone.svg" alt="" width="72" height="72">
+      <h2>Abra a Bíblia. <em>Siga o fio.</em></h2>
+      <p>AppBible para Android — em breve na Google Play.</p>
+      <a class="btn btn-light" href="#demo">
+        <span>Rever a demonstração</span>
+        <i aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <a class="brand" href="#topo"><img src="assets/icone.svg" alt="" width="26" height="26"><span>AppBible</span></a>
+    <p><a class="legal-link" href="privacidade.html">Política de privacidade</a> · Feito por Ricardo Borges · SoftBorges</p>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>
