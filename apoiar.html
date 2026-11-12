@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patrocínio oficial — Bíblia Cristã com Estudo</title>
+<meta name="description" content="Seja patrocinador oficial da Bíblia Cristã com Estudo e tenha seu nome listado no aplicativo. Saiba como entrar em contato.">
+<meta name="theme-color" content="#F3E7CF">
+<link rel="icon" href="assets/icone.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="legal-page">
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="./" aria-label="Bíblia Cristã com Estudo, página inicial">
+    <img src="assets/icone.svg" alt="" width="30" height="30">
+    <span>Bíblia Cristã com Estudo</span>
+  </a>
+  <a class="nav-cta" href="./">Conhecer o app</a>
+</header>
+
+<main class="legal">
+  <header class="legal-head">
+    <span class="eyebrow">Patrocínio oficial</span>
+    <h1>Ajude a manter a Bíblia aberta e seja <em>patrocinador oficial</em>.</h1>
+    <p class="lede">A Bíblia Cristã com Estudo não tem anúncios. Pessoas, igrejas, ministérios e empresas podem patrocinar o projeto e ter o nome listado como patrocinador oficial dentro do aplicativo.</p>
+  </header>
+
+  <section class="legal-summary" aria-label="O que o patrocínio oferece">
+    <ul>
+      <li><b>Nome no app.</b> Patrocinadores oficiais aparecem na lista de patrocinadores dentro da Bíblia Cristã com Estudo.</li>
+      <li><b>Sem anúncios.</b> O patrocínio não coloca propaganda na leitura. O app continua limpo para quem lê.</li>
+      <li><b>Mais conteúdo.</b> O apoio financia mais notas de estudo, léxico, mapas e planos de leitura.</li>
+      <li><b>Combinado com você.</b> A forma de apoio, o valor e o período são acertados diretamente por e-mail.</li>
+    </ul>
+  </section>
+
+  <article class="legal-body">
+    <h2>Como se tornar patrocinador oficial</h2>
+    <ul>
+      <li><b>Escreva um e-mail</b> para o endereço abaixo e conte quem você é ou qual organização representa.</li>
+      <li><b>Combinamos os detalhes:</b> valor, período do patrocínio e como o nome deve aparecer no app.</li>
+      <li><b>Seu nome entra no app</b> na lista de patrocinadores oficiais, a partir da versão seguinte.</li>
+    </ul>
+  </article>
+
+  <section class="card pix sponsor-contact" aria-label="Contato para patrocínio">
+    <div class="card-in">
+      <span class="tag">Contato para patrocínio</span>
+      <p class="pix-label">E-mail</p>
+      <p class="pix-key" id="sponsorEmail" data-u="segrobodracir" data-d="moc.liamg">
+        <noscript>ricardoborges [arroba] gmail [ponto] com</noscript>
+      </p>
+      <div class="sponsor-actions">
+        <a class="btn btn-primary" id="sponsorMail" href="./" hidden>
+          <span>Escrever e-mail</span>
+          <i aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+        </a>
+        <button class="btn btn-light" id="sponsorCopy" type="button" hidden>
+          <span id="sponsorCopyLabel">Copiar e-mail</span>
+          <i aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></svg></i>
+        </button>
+      </div>
+      <p class="pix-help">Prefere doar sem patrocínio? Use o <a class="legal-link" href="./#apoiar">Pix na página inicial</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <a class="brand" href="./"><img src="assets/icone.svg" alt="" width="26" height="26"><span>Bíblia Cristã com Estudo</span></a>
+    <p><a class="legal-link" href="privacidade.html">Política de privacidade</a> · Feito por Ricardo Borges · SoftBorges</p>
+  </div>
+</footer>
+
+<script>
+// O e-mail não aparece no HTML: é montado aqui, a partir de partes invertidas,
+// para dificultar a coleta por robôs que leem o código da página sem executar JavaScript.
+(() => {
+  const el = document.getElementById('sponsorEmail');
+  const rev = (s) => s.split('').reverse().join('');
+  const email = rev(el.dataset.u) + '@' + rev(el.dataset.d);
+  el.textContent = email;
+
+  const mail = document.getElementById('sponsorMail');
+  const subject = encodeURIComponent('Patrocínio oficial — Bíblia Cristã com Estudo');
+  mail.href = 'mai' + 'lto:' + email + '?subject=' + subject;
+  mail.hidden = false;
+
+  const copy = document.getElementById('sponsorCopy');
+  const label = document.getElementById('sponsorCopyLabel');
+  copy.hidden = false;
+  copy.addEventListener('click', async () => {
+    let ok = false;
+    try { await navigator.clipboard.writeText(email); ok = true; }
+    catch {
+      const r = document.createRange(); r.selectNodeContents(el);
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      try { ok = document.execCommand('copy'); } catch { ok = false; }
+    }
+    label.textContent = ok ? 'E-mail copiado' : 'Selecione e copie';
+    setTimeout(() => { label.textContent = 'Copiar e-mail'; }, 2600);
+  });
+})();
+</script>
+</body>
+</html>

@@ -89,8 +89,7 @@
     <p>Se o aplicativo passar a tratar dados de outra forma, esta página será atualizada antes da mudança, com a nova data no topo.</p>
 
     <h2>11. Contato</h2>
-    <!-- TODO: trocar pelo e-mail de contato público antes de publicar -->
-    <p>Dúvidas sobre esta política: <a class="legal-link" href="mailto:SEU-EMAIL-DE-CONTATO">SEU-EMAIL-DE-CONTATO</a>.</p>
+    <p>Dúvidas sobre esta política: <a class="legal-link" id="contactEmail" href="./" data-u="2segrobtfoseht" data-d="moc.liamg"><noscript>thesoftborges2 [arroba] gmail [ponto] com</noscript></a>.</p>
   </article>
 </main>
 
@@ -100,5 +99,17 @@
     <p>Feito por Ricardo Borges · SoftBorges</p>
   </div>
 </footer>
+
+<script>
+// O e-mail não aparece no HTML: é montado aqui, a partir de partes invertidas,
+// para dificultar a coleta por robôs que leem o código da página sem executar JavaScript.
+(() => {
+  const el = document.getElementById('contactEmail');
+  const rev = (s) => s.split('').reverse().join('');
+  const email = rev(el.dataset.u) + '@' + rev(el.dataset.d);
+  el.textContent = email;
+  el.href = 'mai' + 'lto:' + email + '?subject=' + encodeURIComponent('Política de privacidade — Bíblia Cristã com Estudo');
+})();
+</script>
 </body>
 </html>
