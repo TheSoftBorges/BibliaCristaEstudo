@@ -1,4 +1,4 @@
-/* AppBible — landing page. Paleta tirada dos temas do app (core/ui/Colors.kt). */
+/* Bíblia Cristã com Estudo — landing page. Paleta tirada dos temas do app (core/ui/Colors.kt). */
 :root {
   --papiro: #F3E7CF;
   --papel: #FCFAF6;
@@ -73,6 +73,8 @@ em { font-style: italic; color: var(--rubrica); }
 }
 .brand { display: flex; align-items: center; gap: .55rem; font-family: var(--serif); font-size: 1.25rem; letter-spacing: -.01em; }
 .brand img { border-radius: 8px; }
+.brand span { white-space: nowrap; }
+@media (max-width: 420px) { .brand { font-size: 1.05rem; gap: .45rem; } }
 .nav-links { display: flex; gap: 1.5rem; font-size: .9rem; color: var(--tinta-2); }
 .nav-links a { position: relative; padding: .3rem 0; transition: color .4s var(--ease); }
 .nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--rubrica); transform: scaleX(0); transform-origin: left; transition: transform .5s var(--ease); }
