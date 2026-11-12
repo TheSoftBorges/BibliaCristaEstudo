@@ -131,8 +131,9 @@ body.menu-open { overflow: hidden; }
 }
 .hero-copy { display: grid; gap: 1.75rem; justify-items: start; }
 .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; }
-.soon { display: inline-flex; align-items: center; gap: .55rem; font-size: .92rem; color: var(--tinta-2); }
+.soon { text-decoration: none; display: inline-flex; align-items: center; gap: .55rem; font-size: .92rem; color: var(--tinta-2); }
 .soon .dot { width: .5rem; height: .5rem; border-radius: 50%; background: var(--rubrica); box-shadow: 0 0 0 4px rgba(139, 58, 26, .15); }
+a.soon:hover { color: var(--rubrica); }
 .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem; padding-top: 1.75rem; border-top: 1px solid var(--linha); width: 100%; max-width: 36rem; }
 .facts dt { font-family: var(--serif); font-size: 2.6rem; line-height: 1; color: var(--rubrica); }
 .facts dd { margin-top: .4rem; font-size: .86rem; line-height: 1.35; color: var(--tinta-2); }
